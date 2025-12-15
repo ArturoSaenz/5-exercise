@@ -18,6 +18,9 @@
         <div id="activities-list">
           <!-- Activities will be loaded here -->
           <p>Loading activities...</p>
+          <ul id="participants-list" style="list-style-type: none;">
+            <!-- Participants will be dynamically added here -->
+          </ul>
         </div>
       </section>
 
@@ -42,6 +45,24 @@
     </main>
 
     <footer>
+      <script>
+        function addParticipant(name) {
+          const participantsList = document.getElementById('participants-list');
+          const li = document.createElement('li');
+          li.textContent = name;
+          const deleteIcon = document.createElement('span');
+          deleteIcon.textContent = '🗑️';
+          deleteIcon.style.cursor = 'pointer';
+          deleteIcon.onclick = () => unregisterParticipant(name);
+          li.appendChild(deleteIcon);
+          participantsList.appendChild(li);
+        }
+
+        function unregisterParticipant(name) {
+          // Logic to unregister participant
+          alert(name + ' has been unregistered.');
+        }
+      </script>
       <p>&copy; 2023 Mergington High School</p>
     </footer>
 
